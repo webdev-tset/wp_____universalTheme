@@ -6,12 +6,9 @@
     qui permmettent d'insérer la partir entete et footer
     Pour personnaliser ces fonctions, il faudra créer deux fichiers qu'on incluera dans cette page
 -->
-index.php
+archive-appartements.php
 <hr/>
-    Bijour tout le monde: <?php wp_title(); ?>
-    <hr/>
-    l'ensemble des termes de la taxonomie 'sport' ayant au moins un article
-    <?php get_template_part('parts/post_taxonomy_container') ?>
+    <h1>liste des apparts</h1>
     <hr/>
     <?php if(have_posts()): ?>
       <ul>
@@ -46,12 +43,6 @@ index.php
     </div>
   </div>
 </div-->
-    <hr>
-    <?php 
-      // var_dump(get_post());
-      if(comments_open())
-        comments_template();
-    ?>
 <?php
     get_footer()
 ?>
