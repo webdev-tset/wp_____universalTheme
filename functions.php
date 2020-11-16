@@ -175,3 +175,5 @@ add_action('after_switch_theme', function(){
     wp_insert_term('Natation', 'sport');
 
 });
+
+
