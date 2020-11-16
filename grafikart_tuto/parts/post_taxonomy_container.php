@@ -1,0 +1,1 @@
+<?php wp_list_categories(['taxonomy' => 'sport', 'title_li' => '']) ?>

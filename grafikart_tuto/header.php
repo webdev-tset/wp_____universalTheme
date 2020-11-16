@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un thème de teste </title>
-    <?php wp_head() ?>
+    <title>Grafikart tuto</title>
+    <?php wp_head();echo"yo";?>
 </head>
 <body>
-    <header class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+        <a class="navbar-brand" href="<?php esc_url(home_url("/")); ?>"><?php bloginfo('name'); ?>
+            <?= get_theme_mod('header_background'); ?>
+        </a>
+        <?php wp_nav_menu(['theme_location' => 'header', 'container' => false, 'menu_class' => 'navbar-nav mr-auto']); ?>
+<?php
+
+// var_dump(get_home_url());
+// print_r(get_home_url());
+// die();
+?>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <!--ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -28,10 +37,8 @@
                         <a class="dropdown-item" href="#">Action 2</a>
                     </div>
                 </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </ul-->
+            <?php get_search_form() ?>
         </div>
-    </header>
+    </nav>
+    <div id="main" class="container">
