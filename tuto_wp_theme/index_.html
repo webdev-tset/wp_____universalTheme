@@ -13,13 +13,12 @@
     
 
 
-    <h1>GUIDELINE part II</h1>
+    <h1>GUIDELINE part III</h1>
     <hr>
-    <h2>wp functionnalities enabling & Framework css</h2>
+    <h2>pagination, modeles post/page, taxonomy, métadonnée, ...</h2>
     <p>intégrer vos composants css basiques</p>
     <dl>
-        <!--PARTIE III
-        modeles post/page, taxonomy, métadonnée, ...
+        
         <dt> modele de page/article:</dt>
         <dd> créer 'templates/page.php' et 'templates/post.php'</dd>
         <dd> dans chacun, entrer :<br/>
@@ -29,22 +28,22 @@
         */<br/>
         </dd>
         
+        <dt> taxonomy:</dt>
+        <dd> </dd>
+        <dd> </dd>
+        <dd> ...</dd>
         <dt> métadonnée:</dt>
         <dd> ...</dd>
-        <dd> </dd-->
-        <dt>init/wp_register.php: </dt>
-        <dd> navbar_menu, breadcrumb, formsearch, BO, widgets, taxonomy, ..</dd>
+        <dd> </dd>
+        <!--dt>init/wp_register.php: </dt>
+        <dd> navbar_menu, breadcrumb, formsearch, BO</dd>
         
-
-
         <dt> formulaire recherche:</dt>
         <dd> - get_search_form(): générer le code du formulaire par le getter wordpress </dd>
         <dd> - puis soit 1°)soit par un getter personnalisé, soit 2°)soit en créant un fichier 'searchform.php'.<br/>
             - les 2 fonctions esc_url(home_url('/')), get_search_query() seront nécessaires;<br/>
             - l'input de la recherche doit avoir l'attribut 'name="s"', et l'attribut value="<?=get_search_query()?>", enfin le form doit avoir l'action sur l'accueil
         </dd>
-
-
         
         <dt>nav-menu: </dt>
         <dd> ajouter un menu au registre (register_nav_menus())</dd>
@@ -73,47 +72,11 @@
                 ?&gt;</pre>
           </dd>
 
-
-
         <dt> BO:</dt>
         <dd> remplir Réglage>Général si ce n'est pas déjà fait</dd>
         <dd>Réglage>Permaliens: définir les types de permaliens souhaité</dd>
-        <dd>Installer des extensions qui fournisses des 'shrotcode' ou des getters(générateurs de html)</dd>
         <dd>insérer</dd>
         
-
-
-        <dt> taxonomy: register/enregistrer un nouveau terme de taxonomie</dt>
-        <dd> dans init/wp_register.php, faire un add_action sur sur le hook 'init', et dans don callback appeler tout simplement 'register_taxonomy()' avec les bon paramètres</dd>
-        <dd> rafraichir les permaliens (Réglages>permaliens>save) pour que notre nouvelles taxonomie soit prise en compte</dd>
-        <dd> dans home.php (ou nimporte qu'elle autre page de listing d'articles):<br/>
-        1°) générer un array contenant le code html ancre de tous les articles associés à au moins un des termes de la taxonomy sélectionné (wp_list_categorie() concernant un terme)
-        2°) générer le code html de la liste ul de tous les termes de la taxonomy associés à cette article (the_terms() concernant un article).
-        3°) générer manuellement le résultat de 2°), juste en récupérant les memes données sous forme d'array(get_terms()), et en utilisant qlq autres wp helpers (get_terms(), get_term_link(), is_tax()<br/>
-        <br>je n'ai pas bien réussi cette étape là
-        <!--https://developer.wordpress.org/reference/functions/is_tax/-->
-        </dd>
-        <dd> Ne pas oublier de faire Réglage>Permaliens>save</dd>
-        <dd> enfin, veiller à ce que le code générant ces listes de taxonomy soit déclaré dans un fichier template à part:<br/>
-             appeler ce template avec get_template_parts('path/to/files','optional-specification-data-name'). ex: get_template_parts('parts/sport', 'foot') ==> correspond au template 'parts/sport-foot.php' </dd>
-        <dd> get_queried_object() "Retrieve the currently-queried object.". <a href="https://developer.wordpress.org/reference/functions/get_queried_object/" target="_blank">get_queried_object</a></dd>
-
-
-
-
-        <!--https://developer.wordpress.org/reference/functions/register_sidebar/-->
-        <!---->
-        <!---->
-        <dt> WIDGETS: register/enregistrer un nouveau widget: active Apparence>Widgets</dt>
-        <dd> dans wp_register.php, déclarer un hook d'action 'widgets_init', et y utiliser la fonction register_sidebar()</dd>
-        <dd> front-page.php ou un fichier de template, y déclarer là on l'on souhaite afficher le sidebar, soit ecrire "dynamic_sidebar('homepage');", soit appeler "get_sidebar('homepage')" puis créer le fichier sidebar-nomdemonsidebar.php et y écrire le meme code(dynamic_sidebar('homepage');)</dd>
-        <dd> piloter ce qui sera retourné lors de la déclaration/register du sidebar en réseignant les parametre nécessaire (voir https://developer.wordpress.org/reference/functions/register_sidebar/)<br/>
-        des caractère de remplacement (%1$s => variable 1 de type string) peuvent être appliqués à ces paramètres (s'inspirer des autre thème p^t)</dd>
-        <dd> dans le fichier template du sidebar, il vaut mieux tester l'existence du sidebar, et selon le résultat de cette condition, afficher le sidebar si oui, mais si non afficher un template personnalisé (du code html pure, ou des appels aux widgets wp, ex: wp_get_archives(['type' => 'monthly']), ou encore: get_search_form()<br/>
-        il est aussi possible de rajouter des widget via Apparence>widget>lenomdenotrewidget</dd>
-        <dd></dd>
-        <dd></dd>
-
 
 
 
@@ -123,8 +86,6 @@
         <dd> Réglages>Lecture</dd>
         <dd> Réglages>Générel</dd>
         <dd> </dd>
-
-
 
         <dt>template hierarchie: https://developer.wordpress.org/themes/basics/template-hierarchy/#visual-overview</dt>
         <dd> front-page.php (page accueil)</dd>
