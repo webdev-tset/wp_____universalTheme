@@ -18,29 +18,41 @@
 <body>
     <header class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
+        <?php
+            // https://developer.wordpress.org/reference/functions/the_custom_logo/
+            // echo the_custom_logo();
+            // echo get_custom_logo();
+            //---//
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+            $custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'thumbnail' );
+            echo '<img src="' . esc_url( $custom_logo_url ) . '" alt="">';
+        ?>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <?= 
+                // https://developer.wordpress.org/reference/functions/wp_nav_menu%20start_lvl%20never%20clled/
+                wp_nav_menu([
+                    'theme_location' => 'navbar', 
+                    'container' => false,// 'container_id' => '','container_class' => '',
+                    'items_wrap' => '<menu id="mon_navbar%1$s" class="%2$s navbar-nav mr-auto">
+                        %3$s
+                    </menu>',
+                    // 'menu_id' => 'mon_navbar',
+                    // 'menu_class' => 'navbar-nav mr-auto',
+                    'walker' => new Mon_Walker_Nav_Menu,
+                    // 'fallback_cb' => function(){echo"...no menu available yet...";},
+                ]); 
+
+
+                get_search_form();
+
+                
+                if ( function_exists('yoast_breadcrumb') ) {
+                    yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                }
+            ?>
         </div>
     </header>
