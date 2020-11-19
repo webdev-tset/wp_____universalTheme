@@ -9,15 +9,45 @@
     
 
 
-    <h1>GUIDELINE part I</h1>
+    <h1>GUIDELINE part II</h1>
     <hr>
-    <h2>boilerplate</h2>
-    <p>Quickly create base files for webpages u'll serve</p>
+    <h2>wp functionnalities enabling & Framework css</h2>
+    <p>intégrer vos composants css basiques</p>
     <dl>
-        <dt>créer:</dt>
-        <dd> style.css and {index.php, header.php et footer.php}</dd>
+        <dt>dans le BO: </dt>
+        <dd> Page>add: créer au moins 2 pages: 'accueil', 'articles'</dd>
+        <dd> Article>add: créer au moins 4articles</dd>
+        <dd> Réglages>Lecture</dd>
+        <dd> Réglages>Générel</dd>
+        <dd> </dd>
+
+        <dt>template hierarchie: https://developer.wordpress.org/themes/basics/template-hierarchy/#visual-overview</dt>
+        <dd> front-page.php (page accueil)</dd>
+        <dd> home.php (page liste articles)</dd>
+        <dd> ...........</dd>
+        <dd> page.php (une page)</dd>
+        <dd> single-post.php (un article)</dd>
+        <dd> ...........</dd>
+        <dd> parts/posts.php (partie de liste d'article)</dd>
+        <dd> parts/post.php (partie d'un article)</dd>
+        <dd> template/page.php (template pour un modèle de page)</dd>
+        <dd> template/post.php (template pour un modèle d'article)</dd>
+        <dd> ...........</dd>
+        <dd> <a href="https://developer.wordpress.org/themes/basics/the-loop/">lien vers une boucle wp classique générant contenu</a></dd>
+        <dd> ...........</dd>
+        <dd> 404.php</dd>
+        <dd> search.php</dd>
+        <dd> archive.php</dd>
+
+        <dt>function.php: créer structure fichier</dt>
+        <dd> créer la structure de commentaires nécessaires à distinguer les futures parties du fichier</dd>
+        <dd> -> par exemple: créer des getter pour récupérer le &lt;main/&gt; ou des liens par exemple</dd>
+
+        <dt>function.php: au travers d' "include"s, créer et incorporer les fichiers d'initialisation</dt>
+        <dd> theme_support.php</dd>
+        <dd> registers.php: register styles scripts(or enqueue them), then taxonomy and others</dd>
         
-        <dt>index.php:</dt>
+        <!--dt>index.php:</dt>
         <dd> raccourci emmet pour générer doc html5</dd>
         <dd> utiliser get_header(), get_footer() pour intégrer header.php et footer.php</dd>
         <dd> générer un contenu &lt;main/&gt; lorem qlqconque</dd>
@@ -35,41 +65,10 @@
         <dd> appeler wp_footer() </dd>
         <dd> intégrer un navbar</dd>
         <dd> intégrer un breadcrumb</dd>
-        <dd> </dd>
+        <dd> </dd-->
         
 
     </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <!--h1>GUIDELINE part I</h1>
-    <hr>
-    <h2>boilerplate</h2>
-    <p>.....desciption......</p>
-    <ul>
-        <dt>style.css </dt>
-        <dd>and index.php</dd>
-        
-        <dt
-       >................</dt> <dd></dd>
-        
-        <dt>....steps ......</dt>
-        <dd>to follow</dd>
-        
-    </ul-->
 
 
 
