@@ -1,3 +1,9 @@
+<?php
+
+     use MonNamespace\Mon_Walker_Nav_Menu;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -24,6 +30,26 @@
                                    <a class="nav-link" href="<?= get_home_url() ?>/articles">Articles</a>
                               </li>
                          </ul>
+
+
+
+                         <?= 
+                              // https://developer.wordpress.org/reference/functions/wp_nav_menu%20start_lvl%20never%20clled/
+                              wp_nav_menu([
+                                   'theme_location' => 'navbar', 
+                                   'container' => false,// 'container_id' => '','container_class' => '',
+                                   'items_wrap' => '<menu id="mon_navbar%1$s" class="%2$s navbar-nav mr-auto">
+                                        %3$s
+                                   </menu>',
+                                   // 'menu_id' => 'mon_navbar',
+                                   // 'menu_class' => 'navbar-nav mr-auto',
+                                   'walker' => new Mon_Walker_Nav_Menu,
+                                   'fallback_cb' => function(){echo"...no menu available yet...";},
+                              ]); 
+                         ?>
+                         
+                         
+                         
                          <form class="form-inline my-2 my-lg-0">
                               <input class="form-control mr-sm-2" type="text" placeholder="Search">
                               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
