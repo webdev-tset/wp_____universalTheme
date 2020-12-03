@@ -23,10 +23,9 @@ add_action('after_setup_theme', function(){
     add_theme_support('post-thumbnails');
     add_theme_support__wp_title();
     add_theme_support__custom_logo();
+    // get_theme_support('custom-logo');
 
 
-    // $ex = get_theme_support('post-thumbnails');
-    // $ex = get_theme_support('custom-logo');
 
 
 });

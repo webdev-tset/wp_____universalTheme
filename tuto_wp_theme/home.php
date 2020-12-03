@@ -22,6 +22,17 @@
             
         ?>
         <?php endwhile; ?>
+        
+        <hr>
+        
+        <div class="container pagination">
+            <?=get_§pagination(['type'=>'array'])?>
+        </div>
+        <hr>
+        <div class="container pagination">
+            <?= get_the_posts_pagination(['screen_reader_text'=>"Mon titre de pagination personnalisé"]); ?>
+        </div>
+        <hr>
     </main>
 <?php
     get_footer();

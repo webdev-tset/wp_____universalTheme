@@ -32,7 +32,7 @@
 
 
 
-
+//TROUVER UN HOOK SUR LEQUEL DEPLACER CES INSTRUCTIONS-------------------------------------------------
         add_image_size('article_header', null, 75);
         /*
         https://developer.wordpress.org/reference/functions/the_post_thumbnail/
@@ -68,6 +68,7 @@
         // register_nav_menu('header', 'en tete de menu');
         // THEN CALL wp_nav_menu() WHERE YOU WANT YOUR REGISTERED MENU TO BE OUTPUT
         // https://developer.wordpress.org/reference/functions/wp_nav_menu%20start_lvl%20never%20clled/
+//TROUVER UN HOOK SUR LEQUEL DEPLACER CES INSTRUCTIONS-------------------------------------------------
 
 
 

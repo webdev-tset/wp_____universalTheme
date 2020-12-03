@@ -1,5 +1,6 @@
 <?php
 
+require_once('funcs.php');
 require_once('walkers/nav_menu.php');
 
 

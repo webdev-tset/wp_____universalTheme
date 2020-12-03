@@ -12,6 +12,12 @@
         <?= the_title() ?>
         <?= the_content() ?>
         <?php endwhile; ?>
+        
+        <hr>
+        
+        <div class="generated">
+            <?=get_§pagination(['type'=>'array'])?>
+        </div>
     </main>
 <?php
     dynamic_sidebar('homepage'); 
