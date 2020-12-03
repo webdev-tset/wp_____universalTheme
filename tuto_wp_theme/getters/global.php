@@ -11,6 +11,7 @@
     }
 
 
+/*-----------------------------------------------------------------------------------------------------*/
 
 
 /****
@@ -53,15 +54,17 @@
     }
 
 
+/*-----------------------------------------------------------------------------------------------------*/
+
 
 
 /****
  * GETTERS ONLY OUTPUTING, AND ONLY FROM/TO PLAIN DATA
- * 'my_§GETTER_NAME(){}'
+ * '§§GETTER_NAME(){}'
  ****/
-    function my_§SHORTLINKT_TITLE(){
+    function §§SHORTLINKT_TITLE(){
         echo the_title(). ' + some custom words.';
     }
-    function my_§SOCIAL_NETWORK_LINKS($args){
+    function §§SOCIAL_NETWORK_LINKS($args){
         echo 'I HAVE TO RETRIEVE rs LINKS FROM THE AUTHOR';
     }
