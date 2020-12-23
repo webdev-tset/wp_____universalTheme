@@ -3,8 +3,9 @@
 
 
 
+    $bodyClassName = "home";
+    get_header(null, ['bodyClassName' => $bodyClassName]);
 
-    get_header();
 ?>front-page.php
 <hr>
     <main>

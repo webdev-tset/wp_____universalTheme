@@ -1,3 +1,7 @@
+<?php 
+    // RETRIEVE PARAMATERS PASSED TO THIS header.php THROUGH get_header() CALLS
+    $bodyClassName = $args['bodyClassName'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,8 @@
     ?></title>
     <?php wp_head() ?>
 </head>
-<body>
+<!--body <?php body_class( 'class-name' ); ?>-->        <!--A FULL LIST OF CLASSES IS ADDED TO THE <body> TAG-->
+<body class="<?=$bodyClassName?>">
     <header class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <?php
@@ -49,10 +54,7 @@
 
                 get_search_form();
 
-                
-                if ( function_exists('yoast_breadcrumb') ) {
-                    yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-                }
+        
             ?>
         </div>
     </header>
@@ -64,7 +66,7 @@
   <!-- https://codex.wordpress.org/Pagination -->
   <!-- https://developer.wordpress.org/themes/functionality/pagination/ -->
     <nav class="ariane container">
-        <div class="ariane__paginationBefore">
+        <div class="ariane__paginationPrevious">
             <!-- 3 DIFFERENT OPTIONS ARE AVAILABLE FOR PAGINATION: 
             - paginate_links()   =>   A HELPER THAT echo ALL THE PAGINATION IN AN <ul/> (most configurable option, an helper can be added for customizing purpose)
             - get_the_posts_pagination()   =>   A HELPER THAT echo ALL THE PAGINATION WITH AN ASSOCIATED wp COMPONENT (nav>h2.screen-reader-text+div.nav-links>a*(2+nbre de pages)) (3 CONFIGURATOIN AVAOILABLE ONLY)
@@ -117,17 +119,32 @@
                 </fieldset>
             </form>
         </div>
-        <ol id="ariane__breadcrumb breadcrumb">
+<!-- BREADCRUMB -------------------------------------------------->
+        <?php 
+        if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        /*
+            LEARN HOW TO INSTALL yoast breadcrumb: 
+            https://yoast.com/help/implement-wordpress-seo-breadcrumbs/#utm_source=yoast-seo&utm_medium=software&utm_term=kb-breadcrumbs-how-to&utm_content=settings&utm_campaign=wordpress-support&php_version=7.3&platform=wordpress&platform_version=5.5.3&software=free&software_version=15.3&days_active=0-1
+
+            YOU CAN ALSO CALL FOR THE yoast PLUGIN WITH THIS FOLLOWING shortcodes:
+            [wpseo_breadcrumb]
+        */
+        ?>
+        <!--ol id="ariane__breadcrumb breadcrumb">
             <li class="breadcrumb-item">
                 <a href="#">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 Library
             </li>
-        </ol>
+        </ol-->
+<!-- ------------------------------------------------------->
+<!-- END OF-------------------------------------------------->
         <div class="date_viewer"></div>
         <div class="color_picker">permettre au user de choisir une couleur pour modifier le theme en temps reel</div>
-        <div class="ariane__paginationAfter">
+        <div class="ariane__paginationNext">
             <?=get_next_posts_link('>') ?? "void" ?>
         </div>
     </nav>

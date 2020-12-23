@@ -1,1 +1,16 @@
-  main{background: green;}
+
+
+
+
+	main{background: brown;}
+
+	body.articles>main>*:not(.pagination){border:solid;}
+	body.articles>main{display:grid;
+		height: 1122.5px;
+		grid-template: repeat(1, 3fr)/2fr 8fr 2fr;
+		grid-auto-columns: 3em;
+		grid-gap: 10px;
+	}
+
+	
+	

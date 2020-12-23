@@ -33,15 +33,29 @@
 
 
 //TROUVER UN HOOK SUR LEQUEL DEPLACER CES INSTRUCTIONS-------------------------------------------------
-        add_image_size('article_header', null, 75);
+// https://developer.wordpress.org/reference/functions/add_image_size/
+        add_image_size('article_header', null, 75); //  TO ENABLE FEATURED IMAGES THE CURRENT THEME MUST INCLUDE add_theme_support('my_thumbnail_name);
+        /*
+        RESERVED IMAGE SIZE NAMES #RESERVED IMAGE SIZE NAMES:
+        - ‘thumb’, ‘thumbnail’, ‘medium’, ‘large’, ‘post-thumbnail’
+        HARD CROP LEFT TOP:
+        - add_image_size( 'custom-size', 220, 220, array( 'left', 'top' ) );
+        220 PIXELS WIDE BY 180 PIXELS TALL, HARD CROP MODE:
+        - add_image_size( 'custom-size', 220, 180, true );
+        */
         /*
         https://developer.wordpress.org/reference/functions/the_post_thumbnail/
-        //Default WordPress
+        PUT FOLLOWING FUNCTIONS CALL IN APPROPRIATE TEMPLATE FILES (ex: home.php)
         the_post_thumbnail( 'thumbnail' );     // Thumbnail (150 x 150 hard cropped)
         the_post_thumbnail( 'medium' );        // Medium resolution (300 x 300 max height 300px)
         the_post_thumbnail( 'medium_large' );  // Medium Large (added in WP 4.4) resolution (768 x 0 infinite height)
         the_post_thumbnail( 'large' );         // Large resolution (1024 x 1024 max height 1024px)
         the_post_thumbnail( 'full' );          // Full resolution (original size uploaded)
+        */
+        /*
+        AND FINALLY, IF AT A PARTICULAR POINT OF THE CODE YOU WOULD LIKE TO ADD A DIFFERENT REGISTERED image_size, JUST USE:
+        https://developer.wordpress.org/reference/functions/image_downsize/
+        image_downsize( $the_post_id, 'my_image_size_name' );
         */
 
 
